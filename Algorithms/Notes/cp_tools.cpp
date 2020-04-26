@@ -1,5 +1,12 @@
 #include<bits/stdc++.h>
+#define mx 100005
+#define INF 1000000009
 using namespace std;
+
+typedef long long ll;
+typedef pair<int,int> ii;
+typedef vector<int> vi;
+typedef unordered_map<int,int> uii;
 
 int main(){
     // For fast input and output and for reducing the time complexity use below two codes for CP
@@ -25,51 +32,52 @@ int main(){
     //vector of vectors taking input and output
     int n;
     cin>>n;
-    vector<vector<int>>z(n);
+    vector<vector<int>>vec(n);  // or 
+    //vector<int>vec[n];
     for(int i =0; i<n ;i++){
         int x, y;
         cin>>x>>y;
-        z[i].push_back(x);
-        z[i].push_back(y);
+        vec[i].push_back(x);
+        vec[i].push_back(y);
     }
     //for printing the vector of vectors
     for(int i = 0; i<n; i++){
-        for(int j = 0; j<z[i].size(); j++){
-            cout<<z[i][j]<<" ";
+        for(int j = 0; j<vec[i].size(); j++){
+            cout<<vec[i][j]<<" ";
         }
         cout<<endl;
     }
     //or u can do 
     for(int i = 0; i<n; i++){
-        for(int j : z[i])
+        for(int j : vec[i])
             cout<<j<<"\n";
     }
     ///////////////////////////////////
 
     //string reverse
-    string q;
-    cin>>q;
+    string st;
+    cin>>st;
     int k ;
     cin>>k;
-    reverse(q.begin(), q.begin() + k);
-    reverse(q.begin() + k , q.end());
-    cout<<q<<endl;
-    reverse(q.begin(), q.end());
-    cout<<q;
+    reverse(st.begin(), st.begin() + k);
+    reverse(st.begin() + k , st.end());
+    cout<<st<<endl;
+    reverse(st.begin(), st.end());
+    cout<<st;
     // reverse from backwards
-    reverse(q.rbegin(), q.rend());
+    reverse(st.rbegin(), st.rend());
 
     ////////////////////////////////////
 
     // Accessing map elements using for each loop
-    unordered_map<int,int>mp;
+    uii mp;
     for(auto i : mp)
             cout<<i.first<<" "<<i.second<<endl;
     
     // Different sorting algorithms stl
     vector<int>v;
     sort(v.begin(), v.end());
-    partial_sort(v.begin(), v.begin() + 3, v.end());
+    partial_sort(v.begin(), v.begin() + 3 , v.end());
     stable_sort(v.begin(), v.end());
 
     // New stl bitset only contains 0 or 1 and indexing from back and inside <> this fixed size should be given- eg 5 = 00000
@@ -77,9 +85,9 @@ int main(){
     bt.count(); // count the no of set bits
     bt.size(); // total no. of values inside
     bt.test(3); // returns 1 if bit is set else return 0
-    bt.any(); // returns true if atleast 1 bit is set else return false
+    bt.any() ;// returns true if atleast 1 bit is set else return false
     bt.set() ;// set all the bits
-    bt.none() ;// returns true if none of the bits is set
+    bt.none(); // returns true if none of the bits is set
     bt.set(4 , 0); //bt[4] = 0
     bt.flip() ;// flip all the bits
     bt.reset() ;// reset all the bits
@@ -95,7 +103,7 @@ int main(){
     // or 
     vector<pair<int,int>>adj[100005];
     // given u, v, w where u = source vertex, v = destination vertex and w = edge weight and loop through the no of edges ie e;
-    int e; // no. of edges
+    int e ;  // no. of edges
     for(int i =0; i<e; i++){
         int u, v, w;
         adj[u].push_back({v, w});
@@ -114,7 +122,7 @@ int main(){
         }
     };
 
-    void testing (){
+    int main(){
         edge q;
         q.a = 3;
         q.y = 'a';
@@ -136,4 +144,48 @@ int main(){
         i = 2;
     for(int i : v)
         cout<<i;
+
+    ////////////////////////////////////////////
+    
+    //using upper_bound and lower_bound
+    // upper_bound will give the first element's index which is greater than the value and the elements are sorted in the given range
+    vector<int>vec = {2, 3, 5, 7, 9};
+    int upper1 = upper_bound(vec.begin(), vec.end(), 4) - vec.begin();  // in vector we subtract the starting iterator
+    cout<<upper1<<endl;
+    int arr[] = {1, 2, 4, 5, 6};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int upper2 = upper_bound(arr, arr + n, 4) - arr;   
+    cout<<upper2;
+
+    //for lower_bound it will give the elements's index which is equal to or just greater than the value given
+    int lower1 = lower_bound(vec.begin(), vec.end(), 8) - vec.begin();
+    cout<<lower1<<endl;
+    int lower = lower_bound(arr, arr + n, 4) - arr;
+
+    // for negative iterations use like this
+    int n = -3;
+    for(int i = n; i <0; i++)
+        cout<<i<<" ";
+    
+    // string to integer
+    string s = "101";
+    int x = 0;
+    for(int i = 0; i<s.length(); i++){
+        int y = s[i] - '0';   // This is used because 1 and 0 in ascii is 49 and 48 so (49 - 48) is 1 
+        x += (y * pow(10, (s.length() -i - 1)));
+    }
+    string z = "cba";
+    int q = z[i] - 'a';   // ascii of a is 97 and c is 99 so (99 - 97) = 2
+
+    ///////////////////////////////////////////////
+
+    // In string we use .begin() and .end()
+    string s = "anurag";
+    sort(s.begin(), s.end());
+
+    /////////////////////////////////////////////
+    // for each loop in map
+    map<int,int>mp;
+    for(auto i : mp)
+        cout<<i.first<<" "<<i.second<<endl;       // we use (.) dot for accessing elements unlike ->
 }
