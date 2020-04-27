@@ -188,4 +188,50 @@ int main(){
     map<int,int>mp;
     for(auto i : mp)
         cout<<i.first<<" "<<i.second<<endl;       // we use (.) dot for accessing elements unlike ->
+     ///////////////////////////////////////////
+    //sorting vector in descending order
+    sort(v.begin(), v.end(), greater<int>());
+    //sorting priority queue in increasing order
+    priority_queue<int, vector<int>, greater<int>>p;
+
+    //////////////////////////////////////////////////
+    
+    // To convert char to string
+    char c = 'a';
+    string x(1, c);  // this will make x as string with 1 value of c ie string x(n, c) n = no.of times c appears in string
+    // or can use string stream
+    stringstream ss;
+    char c = 'a';
+    string s;
+    ss << c;
+    ss >> s;
+    cout<<s;
+    // or just make it equal to string
+    char c = 'a';
+    string s;     // Don't use string s = c; it will give an error
+    s = c;
+    cout<<s;
+    // or can use push_back
+    string s;
+    char c = 'a';
+    s.push_back(c);
+    cout<<s;
+    // use + operator
+    char c = 'a';
+    string x;
+    x += c;
+    cout<<x;
+
+    ////////////////////////////////////////////////////////////////////////
+
+    // Conversion of string to integer
+    //use stoi
+    string s = "123";
+    int x = stoi(s);
+    // or use stringstream which have a function geek
+    string s = "123";
+    stringstream geek(s);  //geek is a already built function
+    int x = 0;
+    geek>>x;
+    cout<<x + 4;
 }
