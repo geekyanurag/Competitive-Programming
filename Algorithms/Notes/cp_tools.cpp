@@ -177,6 +177,10 @@ int main(){
     string z = "cba";
     int q = z[i] - 'a';   // ascii of a is 97 and c is 99 so (99 - 97) = 2
 
+    // Integer to string 
+    int x = 3;
+    string y = to_string(x);
+
     ///////////////////////////////////////////////
 
     // In string we use .begin() and .end()
@@ -234,4 +238,35 @@ int main(){
     int x = 0;
     geek>>x;
     cout<<x + 4;
+
+    ////////////////////////////
+    //no. of bits in an integer
+    int x = 3;
+    cout<<__builtin_popcount(x);  // No. of set bits(ie no. of zeroes in its binary representation) in an integer
+    cout<<__builtin_clz(x);       // No.  of leading zeroes in binary
+    cout<<__builtin_ctz(x);       // No. of trailing zeroes in binary
+    cout<<__builtin_parity(x);    // No. of one's in its binary representation , if odd then parity is 1 and 0 for even
+
+    //////////////////////////////////////////////////////////
+
+    // comparision function in sort function can be written like this:
+    bool comparision(int a, int b){
+    return __builtin_popcount(a) <= __builtin_popcount(b) && (a < b);
+    }
+    int main(){
+        vector<int>v = {1024,512,256,128,64,32,16,8,4,2,1};
+        sort(v.begin(), v.end(), comparision);
+        for(int i : v)
+            cout<<i<<" ";
+    
+    }
+
+    ///////////////////////////////////////////////////////////
+    // To find the index of the first occurence of a character in string
+    string s = "anurag";
+    auto i = s.find('r');
+    cout<<i<<endl; 
+    // to count the no. of occurences of a character in string
+    string s = "leetcode";
+    cout<<count(s.begin(), s.end(), 'e');
 }
