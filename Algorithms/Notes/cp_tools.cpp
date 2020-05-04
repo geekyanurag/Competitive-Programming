@@ -269,4 +269,26 @@ int main(){
     // to count the no. of occurences of a character in string
     string s = "leetcode";
     cout<<count(s.begin(), s.end(), 'e');
+
+    //////////////////////////////////////////////////////////////
+    // Usage of "->" operator. This is used to access structure or union elements.
+    struct test{
+	int data;
+	string name;
+	double value;
+    };
+
+    int main(){
+	    test* a = new test();
+	    a->data = 3;
+	    a->name = "anurag";
+	    cout<<a->data<<endl;
+    }
+    // we can also access elements without creating the pointer object.
+    int main(){
+        test1 b = new test();
+        b.data = 3;
+        cout<<b.data<<endl;
+    }
+
 }
