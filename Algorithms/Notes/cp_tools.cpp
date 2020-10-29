@@ -1,3 +1,4 @@
+// This program is not a valid program. This is only for the learning new techniques described in the program. 
 #include<bits/stdc++.h>
 #define mx 100005
 #define INF 1000000009
@@ -33,6 +34,7 @@ int main(){
     int n;
     cin>>n;
     vector<vector<int>>vec(n);  // or 
+    vector<vector<int>>vec(n, vector<int>(m)); // For defining the size of the inside vector in vec.
     //vector<int>vec[n];
     for(int i =0; i<n ;i++){
         int x, y;
@@ -289,6 +291,45 @@ int main(){
         test1 b = new test();
         b.data = 3;
         cout<<b.data<<endl;
+    }
+
+    //////////////////////////////////////////////////////////////
+    // For finding the substring in a string
+    string x = "anurag";
+    string t = "ur";
+    if(x.find(t) != string::npos)  // find the first occurence of the string.
+        cout<<"yes"<<endl;
+    
+    ///////////////////////////////////////////////////////////
+
+    // for finding the min or max for than 2 numbers using min , max functions
+    int x = min({3, 5, 1});
+    int y = max({6, 3, 8, 9});
+
+    // How to find ceil value without using ceil function (Use always this, don't use ceil function)
+    int a = 5, b = 2;
+    int x = (a / b) + (a % b != 0);
+
+    // If you want to change values in a variable for an array then pass them as reference to the function
+    // Here is the example for array rotation
+    void rev(vector<int>&arr, int x, int y){
+    while(x < y){
+        swap(arr[x++], arr[y--]);
+        }
+    }
+    void rotate(vector<int>&arr, int k){
+    int n = arr.size();
+    rev(arr, 0, k);
+    rev(arr, k + 1, n - 1);
+    rev(arr, 0, n - 1);
+    }
+    int main(){
+        int n;
+        cin>>n;
+        vector<int>arr(n)
+        for(auto &i : arr) cin>>i;
+        rotate(arr, 2);
+        for(auto i : arr) cout<<i<<" ";
     }
 
 }
